@@ -827,34 +827,69 @@
         color: var(--text-muted);
     }
 
-    @media (max-width: 768px) {
+        @media (max-width: 768px) {
         .trust-strip .container {
             justify-content: center;
             gap: 24px;
         }
+
         .trust-item {
-            width: 45%; 
+            width: 45%;
             font-size: 0.95rem;
             flex-direction: column;
             text-align: center;
         }
+
+    /* BEFORE-AFTER SCROLL */
         .before-after-card {
             flex-direction: row;
             overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-left: 10px;
         }
 
         .ba-col {
             min-width: 280px;
         }
+
         .ba-col.before {
             border-right: none;
-            
+        }
+
+    /* TESTIMONIALS SCROLL */
+        .testimonials-section .grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            scroll-snap-type: x mandatory;
+            padding: 0 0 10px 10px;
+            scroll-behavior: smooth;
+        }
+    
+        .testimonials-section .testimonial-card {
+            min-width: 280px;
+            flex: 0 0 auto;
+            scroll-snap-align: start;
         }
     }
+
+/* Hide scrollbars (clean UI) */
+.testimonials-section .grid::-webkit-scrollbar,
+.before-after-card::-webkit-scrollbar {
+    display: none;
+}
 
     </style>
 </head>
 <body>
+
+    .testimonials-section .grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .before-after-card::-webkit-scrollbar {
+        display: none;
+    }
 
     <div class="container">
         <header class="header">
