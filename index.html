@@ -476,24 +476,39 @@
         top: 0;
         left: 0;
         z-index: 1000;
-
         background: transparent;
         transition: all 0.3s ease;
+        padding-top: 24px;
+        pointer-events: none; /* Let clicks pass through the invisible parts */
     }
 
-        .header.scrolled {
-        background: #ffffff;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        border-bottom: 1px solid var(--border-color);
-    }
-        .nav a {
-        color: #111827;
-    }
     .header-inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 0;
+        padding: 8px 32px;
+        background: rgba(255, 255, 255, 0.85); /* Frosty glass */
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 100px; /* Pill shape */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        pointer-events: auto; /* Enable clicks on the actual header bar */
+    }
+
+    .header.scrolled {
+        padding-top: 10px;
+    }
+
+    .header.scrolled .header-inner {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        border-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .nav a {
+        color: #111827;
     }
 
     .logo img {
