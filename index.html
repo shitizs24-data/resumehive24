@@ -858,26 +858,19 @@
 
     /* TESTIMONIALS SCROLL */
         .testimonials-section .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-        }
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+}
 
-        .testimonials-section .testimonial-card {
-            padding: 20px;
-            height: auto;
-        }
+.testimonials-section .testimonial-card {
+    padding: 16px !important;
+}
 
-        .testimonials-section .testimonial-card p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-/* Hide scrollbars (clean UI) */
-        .testimonials-section .grid::-webkit-scrollbar,
-        .before-after-card::-webkit-scrollbar {
-            display: none;
-        }
+.testimonials-section .testimonial-card p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+}
         
 
     </style>
