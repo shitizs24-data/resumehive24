@@ -858,20 +858,35 @@
 
     /* TESTIMONIALS SCROLL */
         .testimonials-section .grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-}
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding-left: 10px;
+            scroll-snap-type: x mandatory;
+        }
 
-.testimonials-section .testimonial-card {
-    padding: 16px !important;
-}
+        .testimonials-section .testimonial-card {
+            min-width: 260px;
+            max-width: 260px;
+            flex: 0 0 auto;
+            padding: 18px;
+            scroll-snap-align: start;
+        }
+        .testimonials-section .testimonial-card p {
+            display: -webkit-box;
+            -webkit-line-clamp: 4; /* 3–5 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .testimonials-section .grid {
+            scroll-behavior: smooth;
+        }
 
-.testimonials-section .testimonial-card p {
-    font-size: 0.9rem !important;
-    line-height: 1.4 !important;
-}
-        
+        .testimonials-section .grid::-webkit-scrollbar {
+            display: none;
+        }
 
     </style>
 </head>
