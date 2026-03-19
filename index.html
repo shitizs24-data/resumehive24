@@ -858,26 +858,21 @@
 
     /* TESTIMONIALS SCROLL */
         .testimonials-section .grid {
-            display: flex;
-            overflow-x: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
-            scroll-snap-type: x mandatory;
-            padding: 0 0 10px 10px;
-            scroll-behavior: smooth;
         }
-    
+
         .testimonials-section .testimonial-card {
-            min-width: 280px;
-            flex: 0 0 auto;
-            scroll-snap-align: start;
+            width: 100%;
         }
-    }
+            }
 
 /* Hide scrollbars (clean UI) */
-.testimonials-section .grid::-webkit-scrollbar,
-.before-after-card::-webkit-scrollbar {
-    display: none;
-}
+        .testimonials-section .grid::-webkit-scrollbar,
+        .before-after-card::-webkit-scrollbar {
+            display: none;
+        }
 
     </style>
 </head>
