@@ -459,8 +459,9 @@
         background: var(--bg-card);
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 100px 40px;
         gap: 30px;
         transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         box-shadow: -5px 0 30px rgba(0,0,0,0.15);
@@ -508,6 +509,7 @@
         cursor: pointer;
         z-index: 1000;
         transition: 0.3s;
+        margin-right: 12px;
     }
 
     .nav-toggle:hover {
@@ -778,3 +780,4 @@
     </script>
 </body>
 </html>
+
