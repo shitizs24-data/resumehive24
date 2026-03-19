@@ -839,11 +839,16 @@
             text-align: center;
         }
         .before-after-card {
-            flex-direction: column;
+            flex-direction: row;
+            overflow-x: auto;
+        }
+
+        .ba-col {
+            min-width: 280px;
         }
         .ba-col.before {
             border-right: none;
-            border-bottom: 1px solid var(--border-color);
+            
         }
     }
 
