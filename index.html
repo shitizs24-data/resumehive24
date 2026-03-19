@@ -117,13 +117,64 @@
 
         /* Hero Section */
         .hero {
-            padding: 120px 0 100px;
+            padding: 180px 0 100px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
+            background-image: url('assets/hero_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .hero-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.88) 0%, rgba(17, 24, 39, 0.98) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 24px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .trust-badge .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10B981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
         }
 
         .hero h1 {
@@ -131,13 +182,16 @@
             max-width: 900px;
             margin: 0 auto 24px;
             letter-spacing: -1px;
+            color: #ffffff;
         }
 
         .hero p {
             font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.75);
             margin-bottom: 48px;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* General Section */
@@ -435,10 +489,6 @@
         .nav a {
         color: #111827;
     }
-        .hero {
-        padding-top: 140px;
-    }
-
     .header-inner {
         display: flex;
         justify-content: space-between;
@@ -582,10 +632,16 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero container">
-        <h1>Get More Interview Calls with a <span class="highlight">Resume That Actually Works</span></h1>
-        <p>Expertly crafted, ATS-optimized resumes designed to help freshers and professionals in India land their dream jobs.</p>
-        <a href="#pricing" class="btn">Get My Resume Reviewed <i class="fas fa-arrow-right"></i></a>
+    <section class="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <div class="trust-badge">
+                <span class="dot"></span> INDIA'S MOST TRUSTED RESUME BUILDING PLATFORM
+            </div>
+            <h1>Get More Interview Calls with a <span class="highlight">Resume That Actually Works</span></h1>
+            <p>Expertly crafted, ATS-optimized resumes designed to help freshers and professionals in India land their dream jobs.</p>
+            <a href="#pricing" class="btn">Get My Resume Reviewed <i class="fas fa-arrow-right"></i></a>
+        </div>
     </section>
 
     <!-- Problem Section -->
@@ -780,4 +836,3 @@
     </script>
 </body>
 </html>
-
