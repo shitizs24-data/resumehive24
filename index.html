@@ -505,7 +505,6 @@
         justify-content: space-between;
         align-items: center;
         padding: 8px 16px;
-        gap: 12px;
         background: rgba(255, 255, 255, 0.85); /* Frosty glass */
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -514,20 +513,6 @@
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         pointer-events: auto; /* Enable clicks on the actual header bar */
-    }
-    .header-cta {
-        background: var(--primary);
-        color: #000;
-        padding: 10px 18px;
-        border-radius: 10px;
-        font-size: 0.9rem;
-        font-weight: 700;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    .header-cta:hover {
-        background: var(--primary-hover);
     }
 
     .header.scrolled {
@@ -916,9 +901,6 @@
             font-size: 1.8rem;
             line-height: 1.2;
         }
-        .header-cta {
-            display: none;
-        }
 
     </style>
 </head>
@@ -932,8 +914,6 @@
                 <a href="#" class="logo">
                     <img src="assets/logo.png" alt="ResumeHive Logo">
                 </a>
-
-                <a href="#pricing" class="header-cta">Get Started</a>
 
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
                     <i class="fas fa-bars"></i>
