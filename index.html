@@ -673,7 +673,7 @@
     /* Social Proof & Testimonials */
     .testimonials-section {
         padding-top: 100px;
-        padding-bottom: 40px;
+        padding-bottom: 0;
     }
 
     .before-after-card {
@@ -860,26 +860,25 @@
         .testimonials-section .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 14px;
         }
 
         .testimonials-section .testimonial-card {
-            width: 100%;
+            padding: 20px;
+            height: auto;
         }
-            }
+
+        .testimonials-section .testimonial-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
 
 /* Hide scrollbars (clean UI) */
         .testimonials-section .grid::-webkit-scrollbar,
         .before-after-card::-webkit-scrollbar {
             display: none;
         }
-        .testimonials-section .grid::-webkit-scrollbar {
-            display: none;
-        }
-
-        .before-after-card::-webkit-scrollbar {
-            display: none;
-        }
+        
 
     </style>
 </head>
