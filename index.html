@@ -170,6 +170,17 @@
             margin-top: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
+        
+        .trust-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+
+        .trust-text span:last-child {
+            font-size: 0.65rem;
+            opacity: 0.9;
+        } 
 
         .trust-badge .dot {
             width: 6px;
@@ -652,7 +663,11 @@
         <div class="hero-bg-overlay"></div>
         <div class="container hero-content">
             <div class="trust-badge">
-                <span class="dot"></span> 1000+ ATS resumes delivered | ⭐4.8/5 rated by clients
+                <span class="dot"></span>
+                <div class="trust-text">
+                    <span>1000+ ATS resumes delivered</span>
+                    <span>4.8⭐ rated by clients</span>
+                </div>
             </div>
             <h1>Get More Interview Calls with a <span class="highlight">Resume That Actually Works</span></h1>
             <p>Expertly crafted, ATS-optimized resumes designed to help freshers and professionals in India land their dream jobs.</p>
