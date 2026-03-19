@@ -2,7 +2,7 @@
 ResumeHive is a service helping job seekers in India land more interview calls with ATS-optimized resumes.
 
 ## 🚀 Live Website
-https://shitiz.github.io/resumehive/
+
 
 ## 💡 What We Do
 - ATS-optimized resume creation
