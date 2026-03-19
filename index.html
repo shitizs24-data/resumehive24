@@ -293,7 +293,7 @@
 
         /* Pricing Section */
         .pricing-section .grid {
-            align-items: center;
+            align-items: stretch;
         }
 
         .pricing-card {
@@ -301,24 +301,27 @@
             flex-direction: column;
             text-align: center;
             overflow: visible;
+            height: 100%;
         }
 
         .pricing-card::before {
             border-radius: 20px;
         }
 
-        .pricing-card.popular {
-            border-color: var(--primary);
-            transform: scale(1.05);
-            background: linear-gradient(180deg, #fffde7 0%, #fff59d 100%);
-            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.25);
+        .pricing-card.premium-box {
+            border: 2px solid var(--primary);
+            background: linear-gradient(180deg, #ffffff 0%, #fffcf0 100%);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 0 20px rgba(255, 215, 0, 0.15);
+            position: relative;
+            z-index: 2;
         }
 
-        .pricing-card.popular:hover {
-            transform: scale(1.05) translateY(-8px);
+        .pricing-card.premium-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1), 0 0 25px rgba(255, 215, 0, 0.2);
         }
 
-        .popular-badge {
+        .premium-badge {
             position: absolute;
             top: -16px;
             left: 50%;
@@ -331,6 +334,7 @@
             font-weight: 800;
             letter-spacing: 1px;
             box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+            white-space: nowrap;
         }
 
         .pricing-card .card-header {
@@ -464,11 +468,8 @@
 
         /* Responsive */
         @media (max-width: 992px) {
-            .pricing-card.popular {
-                transform: none;
-            }
-            .pricing-card.popular:hover {
-                transform: translateY(-8px);
+            .pricing-card.premium-box:hover {
+                transform: translateY(-4px);
             }
         }
 
@@ -761,9 +762,8 @@
                 <a href="#" class="btn btn-outline">Choose Starter</a>
             </div>
             
-            <!-- Growth (Popular) -->
-            <div class="card pricing-card popular">
-                <div class="popular-badge">MOST POPULAR</div>
+            <!-- Growth -->
+            <div class="card pricing-card">
                 <div class="card-header">
                     <h3>Growth</h3>
                     <p style="color: var(--text-muted);">For early professionals</p>
@@ -777,11 +777,12 @@
                     <li><i class="fas fa-check"></i> Delivery in 2 Days</li>
                     <li class="disabled"><i class="fas fa-times"></i> LinkedIn Optimization</li>
                 </ul>
-                <a href="#" class="btn">Choose Growth</a>
+                <a href="#" class="btn btn-outline">Choose Growth</a>
             </div>
 
             <!-- Premium -->
-            <div class="card pricing-card">
+            <div class="card pricing-card premium-box">
+                <div class="premium-badge">MOST COMPLETE</div>
                 <div class="card-header">
                     <h3>Premium</h3>
                     <p style="color: var(--text-muted);">Comprehensive package</p>
@@ -795,7 +796,7 @@
                     <li><i class="fas fa-check"></i> LinkedIn Optimization</li>
                     <li><i class="fas fa-check"></i> Delivery in 24 Hours</li>
                 </ul>
-                <a href="#" class="btn btn-outline">Choose Premium</a>
+                <a href="#" class="btn">Choose Premium</a>
             </div>
         </div>
     </section>
