@@ -565,7 +565,7 @@
     }
 
     .footer-col {
-        text-align: center;
+        text-align: left;
     }
 
     .social-icons {
@@ -1086,20 +1086,19 @@
 }
 
 .social-icons a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.14);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    margin-right: 10px;
-    color: #fff;
-    transition: 0.3s;
+    color: var(--text-main);
 }
 
 .social-icons a:hover {
-    background: #FFD700;
+    background: rgba(255, 215, 0, 0.2);
     color: #000;
 }
 
@@ -1527,5 +1526,3 @@
     </script>
 </body>
 </html>
-
-
