@@ -480,6 +480,58 @@
             color: var(--text-muted);
             margin-top: 50px;
         }
+        .footer {
+            background: #0f172a;
+            color: #cbd5f5;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: #cbd5f5;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #FFD700;
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        .footer-logo {
+            width: 140px;
+            margin-bottom: 16px;
+            background: #ffffff;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 20px;
+        }
 
         /* Responsive */
         @media (max-width: 992px) {
@@ -1308,12 +1360,46 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 10px;">
-                <i class="fas fa-hexagon-nodes" style="color: var(--primary);"></i> ResumeHive
+            <footer class="footer">
+        <div class="container footer-grid">
+  
+            <!-- LEFT: LOGO + TEXT -->
+            <div class="footer-col">
+                <img src="assets/logo.png" alt="ResumeHive Logo" class="footer-logo">
+                <p>
+                    Get interview-ready with ATS-optimized resumes built to pass screening and impress recruiters.
+                </p>
             </div>
-            <p>&copy; 2026 ResumeHive. All rights reserved.</p>
+
+            <!-- QUICK LINKS -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#pricing">Pricing</a>
+                <a href="#">Samples</a>
+                <a href="#">Contact</a>
+            </div>
+    
+            <!-- CONTACT -->
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="https://wa.me/918979391413" target="_blank">Chat on WhatsApp (Fastest Response)</a>
+                <p>Response within 24 hours</p>
+            </div>
+
+            <!-- LEGAL -->
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund Policy</a>
+            </div>
+
         </div>
+
+        <div class="footer-bottom">
+            © 2026 ResumeHive. All rights reserved.
+        </div>
+
     </footer>
 
     <!-- Optional: Add simple interaction for the hover effect -->
