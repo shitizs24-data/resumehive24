@@ -495,25 +495,54 @@
         left: 0;
         z-index: 1000;
         background: transparent;
+        padding: 18px 0;
+        transition: padding 0.3s ease;
+    }
+
+    .header-shell {
+        width: min(100%, 1120px);
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: flex-start;
+        transition: justify-content 0.3s ease;
     }
 
     .header-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 32px;
-        min-height: 76px;
-        padding: 16px 24px;
-        background: transparent;
-        border-bottom: 1px solid transparent;
-        box-shadow: none;
-        transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        gap: 28px;
+        width: auto;
+        min-height: 72px;
+        padding: 12px 18px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+        transition: width 0.3s ease, min-height 0.3s ease, padding 0.3s ease, border-radius 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    .header.scrolled {
+        padding: 16px 0;
+    }
+
+    .header.scrolled .header-shell {
+        justify-content: center;
     }
 
     .header.scrolled .header-inner {
+        width: min(100%, 960px);
+        min-height: 72px;
+        padding: 12px 26px;
         background: #ffffff;
-        border-bottom-color: rgba(17, 24, 39, 0.08);
-        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-color: var(--border-color);
+        border-radius: 46px;
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
     }
 
     .logo {
@@ -601,10 +630,19 @@
     }
 
     @media (max-width: 768px) {
+        .header {
+            padding: 14px 0;
+        }
+
+        .header-shell {
+            padding: 0 16px;
+        }
+
         .header-inner {
-            min-height: 68px;
+            width: 100%;
+            min-height: 64px;
             gap: 16px;
-            padding: 14px 20px;
+            padding: 10px 14px;
         }
 
         .logo img {
@@ -646,6 +684,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .header.scrolled .header-inner {
+            width: 100%;
+            min-height: 64px;
+            padding: 10px 14px;
+            border-radius: 32px;
         }
     }
 
@@ -922,25 +967,27 @@
 <body>
 
     <header class="header">
-        <div class="container header-inner">
-            <a href="#" class="logo">
-                <img src="assets/logo.png" alt="ResumeHive Logo">
-            </a>
+        <div class="header-shell">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <img src="assets/logo.png" alt="ResumeHive Logo">
+                </a>
 
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <div class="nav-overlay" id="navOverlay"></div>
-
-            <nav class="nav" id="navMenu">
-                <button class="nav-close" id="navClose" aria-label="Close Menu">
-                    <i class="fas fa-times"></i>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
                 </button>
-                <a href="#pricing">Pricing</a>
-                <a href="#">Samples</a>
-                <a href="#">Contact</a>
-            </nav>
+
+                <div class="nav-overlay" id="navOverlay"></div>
+
+                <nav class="nav" id="navMenu">
+                    <button class="nav-close" id="navClose" aria-label="Close Menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#">Samples</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </div>
         </div>
     </header>
 
