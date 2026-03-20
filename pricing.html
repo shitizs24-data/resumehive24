@@ -693,6 +693,112 @@
                 grid-template-columns: 1fr;
             }
         }
+ 
+        .old-price {
+    display: block;
+    font-size: 1rem;
+    color: #9ca3af;
+    text-decoration: line-through;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.price {
+    font-size: 3.25rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.guide-section {
+    padding: 80px 0;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+}
+
+.guide-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 28px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.guide-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.guide-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.guide-sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+}
+
+.guide-card ul {
+    padding-left: 18px;
+    margin-bottom: 18px;
+}
+
+.guide-card ul li {
+    margin-bottom: 10px;
+    font-size: 0.98rem;
+}
+
+.guide-note {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.guide-premium {
+    border: 2px solid var(--primary);
+    background: linear-gradient(180deg, #ffffff 0%, #fffcf0 100%);
+    transform: scale(1.03);
+}
+
+.guide-premium:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+
+.guide-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--primary);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.guide-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 992px) {
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-premium {
+        transform: none;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -748,7 +854,10 @@
                         <div class="card-header">
                             <h3>Starter</h3>
                             <p>Perfect for freshers and early professionals</p>
-                            <div class="price">&#8377;499</div>
+                            <div class="price">
+                                <span class="old-price">&#8377;1499</span>
+                                &#8377;499
+                            </div>
                         </div>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> 1 ATS-Optimized Resume (95+ Score)</li>
@@ -772,7 +881,10 @@
                         <div class="card-header">
                             <h3>Growth</h3>
                             <p>For professionals with growing experience and bigger goals</p>
-                            <div class="price">&#8377;699</div>
+                            <div class="price">
+                                <span class="old-price">&#8377;1999</span>
+                                &#8377;699
+                            </div>
                         </div>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> 2 ATS-Optimized Resume (95+ Score)</li>
@@ -798,7 +910,10 @@
                         <div class="card-header">
                             <h3>Premium</h3>
                             <p>Comprehensive package for maximum impact and recruiter visibility</p>
-                            <div class="price">&#8377;999</div>
+                            <div class="price">
+                                <span class="old-price">&#8377;2999</span>
+                                &#8377;999
+                        </div>
                         </div>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> 2 ATS-Optimized Resumes (95+ Score)</li>
