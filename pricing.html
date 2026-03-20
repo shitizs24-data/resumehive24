@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeHive | Pricing Plans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #f9fafb;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f3f4f6;
+            --primary: #FFD700;
+            --primary-hover: #e6c200;
+            --primary-glow: rgba(255, 215, 0, 0.15);
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --font-family: 'Outfit', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image:
+                radial-gradient(circle at 15% 20%, var(--primary-glow) 0%, transparent 22%),
+                radial-gradient(circle at 85% 10%, var(--primary-glow) 0%, transparent 20%);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-main);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: #000;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-main);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 215, 0, 0.06);
+            color: var(--text-main);
+        }
+
+        .header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: transparent;
+            padding: 18px 0;
+            transition: padding 0.3s ease;
+        }
+
+        .header-shell {
+            width: min(100%, 1120px);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: flex-start;
+            transition: justify-content 0.3s ease;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+            width: auto;
+            min-height: 72px;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+            transition: width 0.3s ease, min-height 0.3s ease, padding 0.3s ease, border-radius 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 16px 0;
+        }
+
+        .header.scrolled .header-shell {
+            justify-content: center;
+        }
+
+        .header.scrolled .header-inner {
+            width: min(100%, 960px);
+            min-height: 72px;
+            padding: 12px 26px;
+            background: #ffffff;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-color: var(--border-color);
+            border-radius: 46px;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: clamp(40px, 6vw, 54px);
+            width: auto;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 32px;
+            margin-left: auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.98rem;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            color: var(--primary-hover);
+        }
+
+        .nav-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            background: transparent;
+            border: none;
+            font-size: 1.35rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .nav-toggle:hover {
+            color: var(--primary-hover);
+        }
+
+        .nav-close {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .nav-close:hover {
+            color: var(--primary-hover);
+        }
+
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.35);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .nav-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .pricing-hero {
+            padding: 180px 0 70px;
+        }
+
+        .hero-panel {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 252, 240, 0.94) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.18);
+            border-radius: 32px;
+            padding: 56px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.07);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h1,
+        .section-header h2 {
+            font-size: clamp(2.4rem, 4vw, 3.4rem);
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .trust-line {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .trust-line .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10B981;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.55);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 32px;
+            border-radius: 24px;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 215, 0, 0.05), transparent 40%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 215, 0, 0.22);
+            background-color: var(--bg-card-hover);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .pricing-section .grid {
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-align: center;
+        }
+
+        .pricing-card::before {
+            border-radius: 24px;
+        }
+
+        .pricing-card.premium-box {
+            border: 2px solid var(--primary);
+            background: linear-gradient(180deg, #ffffff 0%, #fffcf0 100%);
+            transform: scale(1.04);
+            z-index: 3;
+            box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12), 0 0 36px rgba(255, 215, 0, 0.28);
+        }
+
+        .pricing-card.premium-box:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 22px 52px rgba(15, 23, 42, 0.14), 0 0 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background-color: var(--primary);
+            color: #000;
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.28);
+        }
+
+        .plan-image-wrap {
+            margin-bottom: 28px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 255, 255, 0.95) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            padding: 16px;
+        }
+
+        .plan-image-wrap img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 14px;
+            margin: 0 auto;
+        }
+
+        .pricing-card .card-header {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-card .card-header p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-top: 10px;
+        }
+
+        .price {
+            font-size: 3.25rem;
+            font-weight: 800;
+            margin-top: 18px;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .features-list li i.fa-check {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .features-list li i.fa-times {
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .features-list li.disabled {
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .premium-box .btn {
+            padding: 18px 24px;
+        }
+
+        .comparison-section {
+            padding-top: 20px;
+        }
+
+        .comparison-wrap {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 24px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 760px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 18px 16px;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+            text-align: center;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table thead th {
+            background: rgba(255, 215, 0, 0.08);
+            font-size: 0.98rem;
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .yes {
+            color: #0f766e;
+            font-weight: 700;
+        }
+
+        .comparison-table .no {
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 70px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.98rem;
+        }
+
+        .footer-col a {
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-logo {
+            height: 52px;
+            width: auto;
+            margin-bottom: 18px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.14);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            margin-bottom: 0;
+        }
+
+        .social-icons a:hover {
+            color: #000;
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .footer-bottom {
+            padding-top: 28px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.premium-box,
+            .pricing-card.premium-box:hover {
+                transform: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 14px 0;
+            }
+
+            .header-shell {
+                padding: 0 16px;
+            }
+
+            .header-inner {
+                width: 100%;
+                min-height: 64px;
+                gap: 16px;
+                padding: 10px 14px;
+            }
+
+            .header.scrolled .header-inner {
+                width: 100%;
+                min-height: 64px;
+                padding: 10px 14px;
+                border-radius: 32px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+                flex-shrink: 0;
+            }
+
+            .nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: min(320px, 84vw);
+                height: 100vh;
+                margin-left: 0;
+                padding: 88px 28px 32px;
+                background: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 24px;
+                box-shadow: -12px 0 32px rgba(15, 23, 42, 0.12);
+                transition: right 0.3s ease;
+                z-index: 1001;
+            }
+
+            .nav.open {
+                right: 0;
+            }
+
+            .nav a {
+                font-size: 1rem;
+            }
+
+            .nav-close {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            section {
+                padding: 72px 0;
+            }
+
+            .pricing-hero {
+                padding: 150px 0 56px;
+            }
+
+            .hero-panel {
+                padding: 36px 22px;
+                border-radius: 24px;
+            }
+
+            .card {
+                padding: 24px 20px;
+            }
+
+            .plan-image-wrap img {
+                height: 180px;
+            }
+
+            .footer {
+                padding-top: 56px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-shell">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="ResumeHive Logo">
+                </a>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="nav-overlay" id="navOverlay"></div>
+
+                <nav class="nav" id="navMenu">
+                    <button class="nav-close" id="navClose" aria-label="Close Menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <a href="index.html">Home</a>
+                    <a href="pricing.html" class="active">Pricing</a>
+                    <a href="index.html#samples">Samples</a>
+                    <a href="index.html#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="pricing-hero">
+            <div class="container">
+                <div class="hero-panel">
+                    <div class="section-header">
+                        <div class="trust-line">
+                            <span class="dot"></span>
+                            <span>ATS-ready plans built for faster callbacks</span>
+                        </div>
+                        <h1>Choose Your <span class="highlight">Plan</span></h1>
+                        <p>Built to pass screening systems and grab recruiter attention</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section" id="pricing">
+            <div class="container">
+                <div class="grid">
+                    <article class="card pricing-card">
+                        <div class="plan-image-wrap">
+                            <img src="assets/starter.png" alt="Starter plan preview">
+                        </div>
+                        <div class="card-header">
+                            <h3>Starter</h3>
+                            <p>Perfect for freshers and early professionals</p>
+                            <div class="price">&#8377;499</div>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> 1 ATS-Optimized Resume (95+ Score)</li>
+                            <li><i class="fas fa-check"></i> Interview Preparation &amp; Success Kit</li>
+                            <li><i class="fas fa-check"></i> Basic Content Improvement</li>
+                            <li><i class="fas fa-check"></i> Standard Resume Template</li>
+                            <li><i class="fas fa-check"></i> 5 Revision Included</li>
+                            <li><i class="fas fa-check"></i> Delivery in 48-72 Hours</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Cover Letter</li>
+                            <li class="disabled"><i class="fas fa-times"></i> LinkedIn Optimization</li>
+                        </ul>
+                        <a href="https://wa.me/918679391413?text=Hi%2C%20I%20want%20the%20Starter%20plan%20(%E2%82%B9499).%20Please%20guide%20me." class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            Choose Starter
+                        </a>
+                    </article>
+
+                    <article class="card pricing-card">
+                        <div class="plan-image-wrap">
+                            <img src="assets/growth.png" alt="Growth plan preview">
+                        </div>
+                        <div class="card-header">
+                            <h3>Growth</h3>
+                            <p>For professionals with growing experience and bigger goals</p>
+                            <div class="price">&#8377;699</div>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> 2 ATS-Optimized Resume (95+ Score)</li>
+                            <li><i class="fas fa-check"></i> Full Professional Content Rewrite</li>
+                            <li><i class="fas fa-check"></i> Premium Resume Template</li>
+                            <li><i class="fas fa-check"></i> 1 Cover Letter Included</li>
+                            <li><i class="fas fa-check"></i> Interview Preparation &amp; Success Kit</li>
+                            <li><i class="fas fa-check"></i> 10 Revisions Included</li>
+                            <li><i class="fas fa-check"></i> Delivery in 48-72 Hours</li>
+                            <li class="disabled"><i class="fas fa-times"></i> LinkedIn Optimization</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Priority 24-Hour Delivery</li>
+                        </ul>
+                        <a href="https://wa.me/918679391413?text=Hi%2C%20I%20want%20the%20Growth%20plan%20(%E2%82%B9699).%20Please%20guide%20me." class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                            Choose Growth
+                        </a>
+                    </article>
+
+                    <article class="card pricing-card premium-box">
+                        <div class="premium-badge">Most Popular</div>
+                        <div class="plan-image-wrap">
+                            <img src="assets/premium.png" alt="Premium plan preview">
+                        </div>
+                        <div class="card-header">
+                            <h3>Premium</h3>
+                            <p>Comprehensive package for maximum impact and recruiter visibility</p>
+                            <div class="price">&#8377;999</div>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> 2 ATS-Optimized Resumes (95+ Score)</li>
+                            <li><i class="fas fa-check"></i> Advanced Content Strategy &amp; Rewrite</li>
+                            <li><i class="fas fa-check"></i> 2 Professionally Written Cover Letters</li>
+                            <li><i class="fas fa-check"></i> Complete LinkedIn Profile Optimization</li>
+                            <li><i class="fas fa-check"></i> Premium Interview Preparation Kit</li>
+                            <li><i class="fas fa-check"></i> Unlimited Revisions (3 Months)</li>
+                            <li><i class="fas fa-check"></i> 24-Hour Priority Delivery</li>
+                            <li><i class="fas fa-check"></i> Priority Support</li>
+                        </ul>
+                        <a href="https://wa.me/918679391413?text=Hi%2C%20I%20want%20the%20Premium%20plan%20(%E2%82%B9999).%20Please%20guide%20me." class="btn" target="_blank" rel="noopener noreferrer">
+                            Choose Premium
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="comparison-section">
+
+            <section class="guide-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Not sure which <span class="highlight">plan</span> is right for you?</h2>
+                        <p>Choose based on your current stage and how serious you are about getting shortlisted.</p>
+                    </div>
+
+                    <div class="guide-grid">
+            
+                        <!-- Starter -->
+                        <div class="guide-card">
+                            <h3>Starter – ₹499</h3>
+                            <p class="guide-sub">Best for freshers & basic needs</p>
+
+                            <ul>
+                                <li>You’re a student or fresher</li>
+                                <li>You need a clean, ATS-friendly resume</li>
+                                <li>You’re applying casually</li>
+                            </ul>
+
+                            <p class="guide-note">
+                                Gives you a strong foundation, but limited positioning for competitive roles.
+                            </p>
+                        </div>
+
+                        <!-- Growth -->
+                        <div class="guide-card">
+                            <h3>Growth – ₹699</h3>
+                            <p class="guide-sub">For professionals looking to level up</p>
+
+                            <ul>
+                                <li>1–3 years of experience</li>
+                                <li>Switching jobs or targeting better roles</li>
+                                <li>Need stronger content & structure</li>
+                            </ul>
+
+                            <p class="guide-note">
+                                A solid upgrade if you want better storytelling and improved impact.
+                            </p>
+                        </div>
+
+                        <!-- Premium -->
+                        <div class="guide-card guide-premium">
+                            <div class="guide-badge">Recommended</div>
+
+                            <h3>Premium – ₹999</h3>
+                            <p class="guide-sub">For serious job seekers</p>
+
+                            <ul>
+                                <li>Applying to competitive roles/companies</li>
+                                <li>Want maximum visibility & shortlisting chances</li>
+                                <li>Need complete profile optimization</li>
+                            </ul>
+
+                            <p class="guide-note">
+                                Most candidates choose this when they don’t want to miss opportunities due to weak positioning.
+                            </p>
+                        </div>
+
+                    </div>
+            
+                    <div class="guide-footer">
+                        <p>
+                            Still unsure? We usually recommend going with <strong>Premium</strong> — it covers everything you need without needing upgrades later.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="container">
+                <div class="section-header">
+                    <h2>Compare <span class="highlight">Plans</span></h2>
+                    <p>Pick the package that matches how much support you want from the ResumeHive team.</p>
+                </div>
+                <div class="comparison-wrap">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Features</th>
+                                <th>Starter</th>
+                                <th>Growth</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ATS-Optimized Resume</td>
+                                <td class="yes">1 Resume</td>
+                                <td class="yes">2 Resumes</td>
+                                <td class="yes">2 Resumes</td>
+                            </tr>
+                            <tr>
+                                <td>Content Rewrite</td>
+                                <td class="yes">Basic</td>
+                                <td class="yes">Full Rewrite</td>
+                                <td class="yes">Advanced Strategy</td>
+                            </tr>
+                            <tr>
+                                <td>Cover Letter</td>
+                                <td class="no">No</td>
+                                <td class="yes">1 Included</td>
+                                <td class="yes">2 Included</td>
+                            </tr>
+                            <tr>
+                                <td>LinkedIn Optimization</td>
+                                <td class="no">No</td>
+                                <td class="no">No</td>
+                                <td class="yes">Included</td>
+                            </tr>
+                            <tr>
+                                <td>Interview Kit</td>
+                                <td class="yes">Included</td>
+                                <td class="yes">Included</td>
+                                <td class="yes">Premium Kit</td>
+                            </tr>
+                            <tr>
+                                <td>Revisions</td>
+                                <td class="yes">5</td>
+                                <td class="yes">10</td>
+                                <td class="yes">Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Delivery Time</td>
+                                <td class="yes">48-72 Hours</td>
+                                <td class="yes">48-72 Hours</td>
+                                <td class="yes">24 Hours</td>
+                            </tr>
+                            <tr>
+                                <td>Priority Support</td>
+                                <td class="no">No</td>
+                                <td class="no">No</td>
+                                <td class="yes">Included</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.png" alt="ResumeHive Logo" class="footer-logo">
+                <p>Get interview-ready with ATS-optimized resumes built to pass screening and impress recruiters.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/918679391413" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61586757767379" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/resumehive.in/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#samples">Samples</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="https://wa.me/918679391413" target="_blank" rel="noopener noreferrer">Chat on WhatsApp (Fastest Response)</a>
+                <p>Response within 24 hours</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund Policy</a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            &copy; 2026 ResumeHive. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navClose = document.getElementById('navClose');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        const navLinks = document.querySelectorAll('.nav a');
+        const header = document.querySelector('.header');
+
+        function openMenu() {
+            navMenu.classList.add('open');
+            navOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navMenu.classList.remove('open');
+            navOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        if (navToggle) navToggle.addEventListener('click', openMenu);
+        if (navClose) navClose.addEventListener('click', closeMenu);
+        if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+        navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        function syncHeaderState() {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        window.addEventListener('scroll', syncHeaderState);
+        syncHeaderState();
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', event => {
+                const rect = card.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', x + 'px');
+                card.style.setProperty('--mouse-y', y + 'px');
+            });
+        });
+    </script>
+</body>
+</html>
