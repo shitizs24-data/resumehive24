@@ -481,62 +481,76 @@
             margin-top: 50px;
         }
         .footer {
-            background: #0f172a;
-            color: #cbd5f5;
-            padding: 60px 0 20px;
-            margin-top: 60px;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 70px 0 30px;
+            margin-top: 80px;
         }
 
         .footer-grid {
             display: grid;
-            text-align: left;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-        }
-        .footer-col {
-            text-align: left;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
         }
 
-        .footer-col h4 {
-            color: #fff;
-            margin-bottom: 16px;
-            font-size: 1rem;  /* slightly tighter */
-        }
+.footer-col h4 {
+    margin-bottom: 18px;
+    font-size: 1rem;
+}
 
-        .footer-col a {
-            display: block;
-            color: #cbd5f5;
-            text-decoration: none;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
+.footer-col p,
+.footer-col a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.98rem;
+}
 
-        .footer-col a:hover {
-            color: #FFD700;
-        }
+.footer-col a {
+    display: block;
+    margin-bottom: 12px;
+}
 
-        .footer-col p {
-            font-size: 0.95rem;
-            color: #94a3b8;
-        }
+.footer-col a:hover {
+    color: var(--text-main);
+}
 
-        .footer-logo {
-            width: 140px;
-            margin-bottom: 16px;
-            background: #ffffff;
-            padding: 8px 12px;
-            border-radius: 8px;
-        }
+.footer-logo {
+    height: 52px;
+    width: auto;
+    margin-bottom: 18px;
+}
 
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.85rem;
-            color: #94a3b8;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding-top: 20px;
-        }
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.14);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+}
+
+.social-icons a:hover {
+    background: rgba(255, 215, 0, 0.2);
+    color: #000;
+}
+
+.footer-bottom {
+    padding-top: 28px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
 
         /* Responsive */
         @media (max-width: 992px) {
@@ -1390,60 +1404,58 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-            <footer class="footer">
-        <div class="container footer-grid">
-  
-            <!-- LEFT: LOGO + TEXT -->
-            <div class="footer-col">
-                <img src="assets/logo.png" alt="ResumeHive Logo" class="footer-logo">
-                <p>
-                    Get interview-ready with ATS-optimized resumes built to pass screening and impress recruiters.
-                </p>
-                <div class="social-icons">
-                    <a href="https://wa.me/918679391413" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61586757767379" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/resumehive.in/" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
+    <footer class="footer" id="contact">
+    <div class="container footer-grid">
+        <div class="footer-col">
+            <img src="assets/logo.png" alt="ResumeHive Logo" class="footer-logo">
+            <p>
+                Get interview-ready with ATS-optimized resumes built to pass screening and impress recruiters.
+            </p>
 
-            <!-- QUICK LINKS -->
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <a href="pricing.html">Pricing</a>
-                <a href="#">Samples</a>
-                <a href="#">Contact</a>
+            <div class="social-icons">
+                <a href="https://wa.me/918679391413" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61586757767379" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/resumehive.in/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
             </div>
-    
-            <!-- CONTACT -->
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <a href="https://wa.me/918979391413" target="_blank">Chat on WhatsApp (Fastest Response)</a>
-                <p>Response within 24 hours</p>
-            </div>
-
-            <!-- LEGAL -->
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Refund Policy</a>
-            </div>
-
         </div>
 
-        <div class="footer-bottom">
-            © 2026 ResumeHive. All rights reserved.
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="#samples">Samples</a>
+            
         </div>
 
-    </footer>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="https://wa.me/918679391413" target="_blank">
+                Chat on WhatsApp (Fastest Response)
+            </a>
+            <p>Response within 24 hours</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Refund Policy</a>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        © 2026 ResumeHive. All rights reserved.
+    </div>
+</footer>
 
     <!-- Optional: Add simple interaction for the hover effect -->
     <script>
