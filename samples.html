@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeHive | Samples</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Color Palette */
+            --bg-dark: #f9fafb;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f3f4f6;
+            --primary: #FFD700;
+            --primary-hover: #e6c200;
+            --primary-glow: rgba(255, 215, 0, 0.15);
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            
+            /* Typography */
+            --font-family: 'Outfit', sans-serif;
+            
+            /* Utils */
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(circle at 15% 50%, var(--primary-glow) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, var(--primary-glow) 0%, transparent 25%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--text-main);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: #000;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 215, 0, 0.05);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Dark mode for outline button in CTA section where bg is light */
+        .cta-box .btn-outline {
+            border: 2px solid var(--border-color);
+            color: var(--text-main);
+        }
+        .cta-box .btn-outline:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 215, 0, 0.05);
+            color: var(--primary);
+        }
+
+        /* Header Navigation */
+        .header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: transparent;
+            padding: 18px 0;
+            transition: padding 0.3s ease;
+        }
+
+        .header-shell {
+            width: min(100%, 1120px);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: flex-start;
+            transition: justify-content 0.3s ease;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+            width: auto;
+            min-height: 72px;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+            transition: width 0.3s ease, min-height 0.3s ease, padding 0.3s ease, border-radius 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 16px 0;
+        }
+
+        .header.scrolled .header-shell {
+            justify-content: center;
+        }
+
+        .header.scrolled .header-inner {
+            width: min(100%, 960px);
+            min-height: 72px;
+            padding: 12px 26px;
+            background: #ffffff;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-color: var(--border-color);
+            border-radius: 46px;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: clamp(40px, 6vw, 54px);
+            width: auto;
+            display: block;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 32px;
+            margin-left: auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.98rem;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: var(--primary-hover);
+        }
+
+        .nav-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            background: transparent;
+            border: none;
+            font-size: 1.35rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .nav-toggle:hover {
+            color: var(--primary-hover);
+        }
+
+        .nav-close {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .nav-close:hover {
+            color: var(--primary-hover);
+        }
+
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.35);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .nav-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+            background-image: url('assets/hero_bg.png');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .hero-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(20, 30, 50, 0.4) 0%, rgba(10, 15, 30, 0.7) 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;  /* Centered for samples page */
+            text-align: center;   /* Centered for samples page */
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 7vw, 4.5rem);
+            max-width: 900px;
+            margin: 0 auto 24px auto;
+            letter-spacing: -1px;
+            color: #ffffff;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* General Section */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3rem);
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+        
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Carousel Styles */
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+            margin: 0 -10px; /* offset the slide padding */
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            align-items: stretch;
+        }
+        
+        .carousel-slide {
+            flex: 0 0 calc(100% / 3); /* 3 items default */
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+        
+        .sample-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sample-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .sample-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 130%; /* Aspect ratio approx for documents */
+            overflow: hidden;
+            background: #eee;
+        }
+        
+        .sample-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.5s ease;
+        }
+        
+        .sample-card:hover .sample-img-wrapper img {
+            transform: scale(1.03);
+        }
+
+        .sample-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sample-card:hover .sample-overlay {
+            opacity: 1;
+        }
+
+        .sample-overlay i {
+            color: #fff;
+            font-size: 2.5rem;
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .sample-card:hover .sample-overlay i {
+            transform: scale(1);
+        }
+
+        .sample-title {
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            border-top: 1px solid var(--border-color);
+            background: #fff;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .carousel-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot:hover {
+            background: rgba(0,0,0,0.3);
+        }
+
+        .dot.active {
+            background: var(--primary);
+            transform: scale(1.4);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Trust Strip */
+        .trust-strip {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+            z-index: 5;
+        }
+
+        .trust-strip .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .trust-item i {
+            color: var(--primary);
+            background: rgba(255, 215, 0, 0.15);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        /* Final CTA Section */
+        .cta-section {
+            margin: 80px auto;
+            padding: 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--bg-card) 0%, #fffde7 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 70px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.98rem;
+        }
+
+        .footer-col a {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-logo {
+            height: 52px;
+            width: auto;
+            margin-bottom: 18px;
+        }
+
+        .social-icons {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.14);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: #000;
+        }
+
+        .footer-bottom {
+            padding-top: 28px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .carousel-slide {
+                flex: 0 0 calc(50%); /* 2 items */
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 14px 0; }
+            .header-shell { padding: 0 16px; }
+            .header-inner { width: 100%; min-height: 64px; gap: 16px; padding: 10px 14px; }
+            .logo img { height: 40px; }
+            
+            .nav-toggle { display: inline-flex; flex-shrink: 0; }
+            .nav {
+                position: fixed; top: 0; right: -100%; width: min(320px, 84vw); height: 100vh;
+                margin-left: 0; padding: 88px 28px 32px; background: #ffffff;
+                flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 24px;
+                box-shadow: -12px 0 32px rgba(15, 23, 42, 0.12); transition: right 0.3s ease; z-index: 1001;
+            }
+            .nav.open { right: 0; }
+            .nav a { font-size: 1.1rem; }
+            .nav-close { display: inline-flex; align-items: center; justify-content: center; }
+
+            .hero { padding: 140px 0 60px; text-align: center; align-items: center; }
+            section { padding: 60px 0; }
+            
+            .carousel-slide { flex: 0 0 100%; } /* 1 item */
+            
+            .trust-strip .container { justify-content: center; gap: 24px; }
+            .trust-item { width: 100%; font-size: 1.05rem; justify-content: flex-start; max-width: 300px; margin: 0 auto; }
+            
+            .cta-box { padding: 50px 24px; border-radius: 20px; }
+            
+            .lightbox-close { top: -45px; right: 0; }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-col { text-align: left; }
+            .social-icons { justify-content: flex-start; }
+            .hero-buttons { flex-direction: column; width: 100%; padding: 0 10px; }
+            .hero-buttons .btn, .hero-buttons .btn-outline { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="header-shell">
+            <div class="header-inner">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="ResumeHive Logo">
+                </a>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="nav-overlay" id="navOverlay"></div>
+
+                <nav class="nav" id="navMenu">
+                    <button class="nav-close" id="navClose" aria-label="Close Menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <a href="index.html">Home</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="samples.html" class="active">Samples</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <h1>Real <span class="highlight">Resume & Cover Letter</span> Samples</h1>
+            <p>Explore our latest collection of professionally written, ATS-optimized layouts designed to pass the scan and land you your next big opportunity.</p>
+            
+            <div class="hero-buttons">
+                <a href="pricing.html" class="btn">
+                    View Pricing <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="contact.html" class="btn-outline">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Samples Section -->
+    <section class="container" id="resume-samples">
+        <div class="section-header">
+            <h2>Resume <span class="highlight">Samples</span></h2>
+            <p>Proven formatting strategies trusted by top recruiters.</p>
+        </div>
+
+        <div class="carousel-wrapper" id="resumeCarousel">
+            <div class="carousel-track">
+                <!-- 10 Resume Samples -->
+                <script>
+                    for(let i=1; i<=10; i++) {
+                        document.write(`
+                            <div class="carousel-slide">
+                                <div class="sample-card" onclick="openLightbox('assets/samples/resume/${i}.jpg')">
+                                    <div class="sample-img-wrapper">
+                                        <img src="assets/samples/resume/${i}.jpg" alt="Resume Sample ${i}">
+                                        <div class="sample-overlay"><i class="fas fa-search-plus"></i></div>
+                                    </div>
+                                    <div class="sample-title">Resume Sample ${i}</div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+            
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-dots"></div>
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cover Letter Samples Section -->
+    <section class="container" id="cover-letter-samples" style="padding-top: 20px;">
+        <div class="section-header">
+            <h2>Cover Letter <span class="highlight">Samples</span></h2>
+            <p>Professional narratives that clearly communicate your value.</p>
+        </div>
+
+        <div class="carousel-wrapper" id="coverLetterCarousel">
+            <div class="carousel-track">
+                <!-- 10 Cover Letter Samples -->
+                <script>
+                    for(let i=1; i<=10; i++) {
+                        document.write(`
+                            <div class="carousel-slide">
+                                <div class="sample-card" onclick="openLightbox('assets/samples/cover-letter/${i}.jpg')">
+                                    <div class="sample-img-wrapper">
+                                        <img src="assets/samples/cover-letter/${i}.jpg" alt="Cover Letter Sample ${i}">
+                                        <div class="sample-overlay"><i class="fas fa-search-plus"></i></div>
+                                    </div>
+                                    <div class="sample-title">Cover Letter Sample ${i}</div>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+            
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-dots"></div>
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Quality Section -->
+    <div class="trust-strip">
+        <div class="container">
+            <div class="trust-item">
+                <i class="fas fa-robot"></i>
+                <span>ATS-Friendly Formatting</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-pen-nib"></i>
+                <span>Professionally Written Layouts</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-eye"></i>
+                <span>Clean Recruiter-Friendly Presentation</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-star"></i>
+                <span>Built for Better First Impressions</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section container">
+        <div class="cta-box">
+            <h2>Like what you see? <span class="highlight">Let’s build yours next.</span></h2>
+            <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Don't let a poorly formatted resume stand between you and your dream job.</p>
+            
+            <div class="cta-buttons">
+                <a href="pricing.html" class="btn">Explore Pricing <i class="fas fa-rocket"></i></a>
+                <a href="contact.html" class="btn-outline">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.png" alt="ResumeHive Logo" class="footer-logo">
+                <p>Get interview-ready with ATS-optimized resumes built to pass screening and impress recruiters.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/918679391413" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61586757767379" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/resumehive.in/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="samples.html">Samples</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="https://wa.me/918679391413" target="_blank">Chat on WhatsApp (Fastest Response)</a>
+                <p>Response within 24 hours</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund Policy</a>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            © 2026 ResumeHive. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+            <img src="" alt="Sample Fullscreen" id="lightboxImg">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Hamburger Menu Logic
+        const navToggle = document.getElementById('navToggle');
+        const navClose = document.getElementById('navClose');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        const navLinks = document.querySelectorAll('.nav a');
+
+        function openMenu() {
+            navMenu.classList.add('open');
+            navOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navMenu.classList.remove('open');
+            navOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        navToggle.addEventListener('click', openMenu);
+        navClose.addEventListener('click', closeMenu);
+        navOverlay.addEventListener('click', closeMenu);
+        navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        function openLightbox(imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            setTimeout(() => { lightboxImg.src = ''; }, 300); // clear after transition
+            document.body.style.overflow = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Universal Carousel Logic
+        class Carousel {
+            constructor(carouselId) {
+                this.carousel = document.getElementById(carouselId);
+                this.track = this.carousel.querySelector('.carousel-track');
+                this.slides = this.carousel.querySelectorAll('.carousel-slide');
+                this.prevBtn = this.carousel.querySelector('.prev-btn');
+                this.nextBtn = this.carousel.querySelector('.next-btn');
+                this.dotsContainer = this.carousel.querySelector('.carousel-dots');
+                
+                this.currentIndex = 0;
+                this.itemsPerView = 3;
+                this.totalSlides = this.slides.length;
+                this.autoSlideInterval = null;
+
+                this.init();
+            }
+
+            init() {
+                this.updateItemsPerView();
+                this.createDots();
+                this.updateUI();
+
+                // Event Listeners
+                window.addEventListener('resize', () => {
+                    this.updateItemsPerView();
+                    this.updateUI();
+                });
+
+                this.prevBtn.addEventListener('click', () => {
+                    this.movePrev();
+                    this.resetInterval();
+                });
+
+                this.nextBtn.addEventListener('click', () => {
+                    this.moveNext();
+                    this.resetInterval();
+                });
+
+                this.startAutoSlide();
+            }
+
+            updateItemsPerView() {
+                if (window.innerWidth <= 768) {
+                    this.itemsPerView = 1;
+                } else if (window.innerWidth <= 992) {
+                    this.itemsPerView = 2;
+                } else {
+                    this.itemsPerView = 3;
+                }
+                
+                // Snap index back if resized and out of bounds
+                const maxIndex = Math.max(0, this.totalSlides - this.itemsPerView);
+                if (this.currentIndex > maxIndex) {
+                    this.currentIndex = maxIndex;
+                }
+            }
+
+            createDots() {
+                this.dotsContainer.innerHTML = '';
+                // The number of dots depends on items per view, but standard is total item count minus (itemsPerView - 1)
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    dot.addEventListener('click', () => {
+                        this.goToSlide(i);
+                        this.resetInterval();
+                    });
+                    this.dotsContainer.appendChild(dot);
+                }
+            }
+
+            updateUI() {
+                // Determine max index
+                const maxIndex = Math.max(0, this.totalSlides - this.itemsPerView);
+                
+                // Safety bound check
+                if (this.currentIndex < 0) this.currentIndex = 0;
+                if (this.currentIndex > maxIndex) this.currentIndex = maxIndex;
+
+                // Move track
+                const slideWidth = 100 / this.itemsPerView;
+                this.track.style.transform = `translateX(-${this.currentIndex * slideWidth}%)`;
+
+                // Update dots correctly based on current view
+                const dots = this.dotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.style.display = (index > maxIndex) ? 'none' : 'block';
+                    dot.classList.remove('active');
+                });
+                
+                if (dots[this.currentIndex]) {
+                    dots[this.currentIndex].classList.add('active');
+                }
+            }
+
+            goToSlide(index) {
+                const maxIndex = Math.max(0, this.totalSlides - this.itemsPerView);
+                if (index > maxIndex) index = maxIndex;
+                if (index < 0) index = 0;
+                this.currentIndex = index;
+                this.updateUI();
+            }
+
+            moveNext() {
+                const maxIndex = Math.max(0, this.totalSlides - this.itemsPerView);
+                if (this.currentIndex >= maxIndex) {
+                    this.currentIndex = 0; // infinite loop back
+                } else {
+                    this.currentIndex++;
+                }
+                this.updateUI();
+            }
+
+            movePrev() {
+                const maxIndex = Math.max(0, this.totalSlides - this.itemsPerView);
+                if (this.currentIndex <= 0) {
+                    this.currentIndex = maxIndex; // loop back to end
+                } else {
+                    this.currentIndex--;
+                }
+                this.updateUI();
+            }
+
+            startAutoSlide() {
+                this.autoSlideInterval = setInterval(() => {
+                    this.moveNext();
+                }, 3000);
+            }
+
+            resetInterval() {
+                clearInterval(this.autoSlideInterval);
+                this.startAutoSlide();
+            }
+        }
+
+        // Initialize Carousels
+        document.addEventListener('DOMContentLoaded', () => {
+            new Carousel('resumeCarousel');
+            new Carousel('coverLetterCarousel');
+        });
+
+    </script>
+</body>
+</html>
